@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shine SNS - Weekly Timeline</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Shine SNS Weekly</h1>
+            <p>최근 7일간의 소셜 미디어 활동</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="controls">
+            <button id="refresh-btn" class="btn-primary" aria-label="새로고침">
+                <span class="icon">↻</span> 새로고침
+            </button>
+        </div>
+
+        <div class="timeline-container">
+            <!-- Donald Trump Column -->
+            <section class="timeline-column trump-theme" id="trump-feed">
+                <div class="column-header">
+                    <h2>Donald Trump</h2>
+                    <span class="handle">@realDonaldTrump</span>
+                </div>
+                <div class="posts-wrapper">
+                    <!-- Posts will be injected here -->
+                    <div class="loading-spinner"></div>
+                </div>
+            </section>
+
+            <!-- Lee Jae-myung Column -->
+            <section class="timeline-column lee-theme" id="lee-feed">
+                <div class="column-header">
+                    <h2>이재명</h2>
+                    <span class="handle">@Jaemyung_Lee</span>
+                </div>
+                <div class="posts-wrapper">
+                    <!-- Posts will be injected here -->
+                    <div class="loading-spinner"></div>
+                </div>
+            </section>
+
+            <!-- Elon Musk Column -->
+            <section class="timeline-column musk-theme" id="musk-feed">
+                <div class="column-header">
+                    <h2>Elon Musk</h2>
+                    <span class="handle">@elonmusk</span>
+                </div>
+                <div class="posts-wrapper">
+                    <!-- Posts will be injected here -->
+                    <div class="loading-spinner"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Shine SNS Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

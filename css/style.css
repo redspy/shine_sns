@@ -1,0 +1,225 @@
+:root {
+    /* Colors */
+    --trump-primary: #E0162B; /* Red */
+    --trump-bg: #FFF5F5;
+    --lee-primary: #004EA2; /* Blue */
+    --lee-bg: #F0F7FF;
+    --musk-primary: #000000; /* Black (X) */
+    --musk-bg: #F5F5F5;
+
+    --text-color: #333;
+    --text-light: #666;
+    --background: #fdfdfd;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --border-radius: 12px;
+
+    /* Spacing */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Header */
+.main-header {
+    background: white;
+    padding: var(--spacing-lg) 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.main-header h1 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-primary {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}
+
+/* Timeline Grid */
+.timeline-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.timeline-column {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* Fixed height for scrolling */
+}
+
+.column-header {
+    padding: var(--spacing-md);
+    color: white;
+    text-align: center;
+}
+
+.timeline-column.trump-theme .column-header {
+    background-color: var(--trump-primary);
+}
+
+.timeline-column.lee-theme .column-header {
+    background-color: var(--lee-primary);
+}
+
+.timeline-column.musk-theme .column-header {
+    background-color: var(--musk-primary);
+}
+
+.column-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.column-header .handle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.posts-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+    background-color: #f9f9f9;
+}
+
+/* Post Card */
+.post-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.trump-theme .post-card { border-left-color: var(--trump-primary); }
+.lee-theme .post-card { border-left-color: var(--lee-primary); }
+.musk-theme .post-card { border-left-color: var(--musk-primary); }
+
+.post-date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.post-content {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+    white-space: pre-wrap; /* Preserve line breaks */
+}
+
+.post-likes {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Scrollbar styling */
+.posts-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+.posts-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.posts-wrapper::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+.posts-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-container {
+        grid-template-columns: 1fr;
+    }
+    .timeline-column {
+        height: 500px;
+    }
+}
